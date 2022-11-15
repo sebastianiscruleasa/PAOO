@@ -23,9 +23,25 @@ ElementChimic::ElementChimic(const ElementChimic &e)
 
 ElementChimic &ElementChimic::operator=(const ElementChimic &e)
 {
+    //ITEM 11 
+    if (this == &e)
+    {
+        std::cout << "Assignment to self" << std::endl;
+        return *this;
+    }
     std::cout << "Copy Assignment Operator" << std::endl;
     this->masaAtomica = e.masaAtomica;
     this->numarAtomic = e.numarAtomic;
+    this->nume = e.nume;
+    return *this;
+}
+
+//ITEM 10
+ElementChimic &ElementChimic::operator+=(const ElementChimic &e)
+{
+    std::cout << "Operator +=" << std::endl;
+    this->masaAtomica += e.masaAtomica;
+    this->numarAtomic += e.numarAtomic;
     this->nume = e.nume;
     return *this;
 }
